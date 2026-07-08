@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: int_orders_enriched
+    description: >
+      Orders joined to customer geography with reporting date grains and
+      lifecycle flags. Grain: one row per order_id.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: order_date
+        description: Purchase date, used as the daily reporting grain.
+      - name: completed_order_flag
+        description: 1 when order_status = 'delivered', else 0.
+      - name: canceled_order_flag
+        description: 1 when order_status = 'canceled', else 0.
+
+  - name: int_order_delivery_performance
+    description: >
+      Delivery timing per order. Actual metrics (purchase_to_delivered_days,
+      delivery_delay_days, late_delivery_flag) are null until delivery occurs.
+      Grain: one row per order_id.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: delivery_delay_days
+        description: Actual delivered date minus estimated date (positive = late).
+      - name: late_delivery_flag
+        description: 1 if delivered after estimate, 0 if delivered on time, null if not delivered.
+
+  - name: int_seller_order_performance
+    description: >
+      Order-item fact enriched with seller, product, and English category, plus
+      revenue components. Grain: one row per order_id + order_item_id.
+    columns:
+      - name: item_total_value
+        description: price + freight_value for the line item.
+      - name: product_category_name_english
+        description: English category (falls back to Portuguese if no translation).
+
+  - name: int_review_experience
+    description: >
+      Reviews joined to delivery performance for CX analysis. Grain: one row per
+      review record (an order may have multiple reviews).
+    columns:
+      - name: review_score
+        description: Rating 1-5.
+      - name: low_review_flag
+        description: 1 when review_score <= 2.
+
+  - name: int_category_performance
+    description: >
+      Order-item fact focused on category economics (price, freight, status,
+      date). Grain: one row per order_id + order_item_id.
+    columns:
+      - name: product_category_name_english
+        description: English category (falls back to Portuguese if no translation).

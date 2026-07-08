@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: mart_daily_marketplace_metrics
+    description: >
+      Grain: order_date. Business purpose: executive marketplace health — is the
+      marketplace growing and healthy day to day. Key metrics: gross/completed/
+      canceled orders, completion & cancellation rates, GMV, freight, AOV, active
+      customers. Dashboard: Executive Overview trend lines.
+    columns:
+      - name: order_date
+        tests: [unique, not_null]
+      - name: gross_orders
+        tests: [not_null]
+      - name: completion_rate
+        description: completed_orders / gross_orders.
+      - name: total_gmv
+        description: Sum of order-item price + freight for the day.
+
+  - name: mart_seller_performance
+    description: >
+      Grain: seller_id. Business purpose: find high-value sellers that may also
+      create experience risk. Key metrics: seller_orders, completed_orders,
+      seller_gmv, avg_item_price, freight, distinct_products_sold, avg_review_score,
+      late_delivery_rate. Dashboard: Seller Performance scorecard.
+    columns:
+      - name: seller_id
+        tests: [unique, not_null]
+      - name: seller_gmv
+        tests: [not_null]
+      - name: late_delivery_rate
+        description: Share of that seller's delivered orders that arrived late (nullable).
+
+  - name: mart_delivery_reliability
+    description: >
+      Grain: order_month. Business purpose: operational delivery reliability over
+      time. Key metrics: delivered_orders, late_orders, late_delivery_rate,
+      avg_delivery_delay_days, avg_purchase_to_delivered_days. Dashboard: Delivery
+      Reliability trend.
+    columns:
+      - name: order_month
+        tests: [unique, not_null]
+      - name: delivered_orders
+        tests: [not_null]
+
+  - name: mart_customer_experience
+    description: >
+      Grain: order_month. Business purpose: how customer sentiment trends and how
+      it relates to late delivery. Key metrics: review_count, avg_review_score,
+      low_review_count, low_review_rate, late_delivery_rate, avg_delivery_delay_days.
+      Dashboard: Customer Experience trend.
+    columns:
+      - name: order_month
+        tests: [unique, not_null]
+      - name: avg_review_score
+        description: Mean review score for reviews created that month.
+
+  - name: mart_category_performance
+    description: >
+      Grain: product_category_name_english. Business purpose: which categories
+      drive volume, revenue, and satisfaction. Key metrics: orders, items_sold,
+      category_gmv, avg_item_price, avg_freight, avg_review_score. Dashboard:
+      category breakdown on Executive / Seller views.
+    columns:
+      - name: product_category_name_english
+        tests: [unique, not_null]
+
+  - name: mart_payment_behavior
+    description: >
+      Grain: payment_type. Business purpose: understand payment mix and financing
+      behavior. Key metrics: orders, payment_records, total_payment_value,
+      avg_payment_value, avg_payment_installments. Dashboard: payment breakdown.
+    columns:
+      - name: payment_type
+        tests: [unique, not_null]
+      - name: total_payment_value
+        tests: [not_null]

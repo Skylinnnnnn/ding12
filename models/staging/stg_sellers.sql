@@ -1,0 +1,14 @@
+-- Standardized sellers.
+-- Grain: one row per seller_id.
+with source as (
+
+    select * from {{ ref('olist_sellers_dataset') }}
+
+)
+
+select
+    seller_id,
+    seller_zip_code_prefix,
+    lower(trim(seller_city))  as seller_city,
+    upper(trim(seller_state)) as seller_state
+from source

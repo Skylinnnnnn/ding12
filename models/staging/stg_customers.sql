@@ -1,0 +1,15 @@
+-- Standardized customer records.
+-- Grain: one row per customer_id (order-scoped key).
+with source as (
+
+    select * from {{ ref('olist_customers_dataset') }}
+
+)
+
+select
+    customer_id,
+    customer_unique_id,
+    customer_zip_code_prefix,
+    lower(trim(customer_city))  as customer_city,
+    upper(trim(customer_state)) as customer_state
+from source
