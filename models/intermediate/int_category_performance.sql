@@ -30,7 +30,9 @@ select
     order_items.product_id,
 
     products.product_category_name,
-    coalesce(category.product_category_name_english, products.product_category_name)
+    -- ~610 Olist products have no category; bucket them as 'unknown' so they
+    -- aggregate visibly instead of collapsing into a null group.
+    coalesce(category.product_category_name_english, products.product_category_name, 'unknown')
         as product_category_name_english,
 
     orders.order_status,

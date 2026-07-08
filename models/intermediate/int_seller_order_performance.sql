@@ -44,7 +44,9 @@ select
     sellers.seller_state,
 
     products.product_category_name,
-    coalesce(category.product_category_name_english, products.product_category_name)
+    -- ~610 Olist products have no category; bucket them as 'unknown' (see
+    -- int_category_performance) so downstream category rollups stay complete.
+    coalesce(category.product_category_name_english, products.product_category_name, 'unknown')
         as product_category_name_english,
 
     -- Revenue components at the order-item grain

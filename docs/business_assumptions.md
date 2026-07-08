@@ -30,6 +30,17 @@ documented analytics-engineering workflow with clear business framing.
    Some orders have more than one review and some `review_id`s repeat, so we do
    not assume one review per order. Order- and seller-level review metrics
    average per-order scores first to avoid double counting.
+6. **Missing product category = `'unknown'`.** ~610 Olist products have no
+   `product_category_name` (and therefore no English translation). Rather than
+   drop them or leave a null category, we bucket them as `'unknown'` in the
+   category models so their revenue still rolls up and is visible.
+
+## What the tests taught us about the data
+- `order_id` is **not unique** in order_items, payments, and reviews — so
+  uniqueness is tested only on true keys. (This shaped the grain of every model.)
+- ~610 products carry **no category**, surfaced by a `not_null` test on
+  `mart_category_performance`. We kept the test and fixed the data handling
+  (assumption #6) instead of weakening the test.
 
 ## Scope
 - **Geolocation is excluded** from the MVP to keep scope controlled. The seed is

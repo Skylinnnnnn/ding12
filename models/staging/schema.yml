@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_customers
-    description: Standardized customers. Grain: one row per customer_id.
+    description: "Standardized customers. Grain: one row per customer_id."
     columns:
       - name: customer_id
         description: Order-scoped customer key. Unique in this table.
@@ -13,7 +13,7 @@ models:
         description: Stable identifier for a person across orders (not unique here).
 
   - name: stg_orders
-    description: Standardized orders. Grain: one row per order_id.
+    description: "Standardized orders. Grain: one row per order_id."
     columns:
       - name: order_id
         description: Primary key of an order.
@@ -112,7 +112,7 @@ models:
               values: [1, 2, 3, 4, 5]
 
   - name: stg_products
-    description: Standardized products. Grain: one row per product_id.
+    description: "Standardized products. Grain: one row per product_id."
     columns:
       - name: product_id
         description: Primary key of a product.
@@ -121,7 +121,7 @@ models:
           - not_null
 
   - name: stg_sellers
-    description: Standardized sellers. Grain: one row per seller_id.
+    description: "Standardized sellers. Grain: one row per seller_id."
     columns:
       - name: seller_id
         description: Primary key of a seller.
@@ -130,7 +130,7 @@ models:
           - not_null
 
   - name: stg_product_category_translation
-    description: Portuguese-to-English category lookup. Grain: one row per category.
+    description: "Portuguese-to-English category lookup. Grain: one row per category."
     columns:
       - name: product_category_name
         description: Portuguese category name (join key).
