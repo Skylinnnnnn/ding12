@@ -33,6 +33,42 @@ terminal to stop the UI.
 - **Windows (Command Prompt):** `.venv\Scripts\activate.bat`
 - **macOS / Linux:** `source .venv/bin/activate`
 
+## Try it: a sample query that tells a story (zero extra setup)
+You can do real analysis right here — no dashboard needed. In the DuckDB UI, open
+a new SQL cell, paste this, and run it:
+
+```sql
+select
+    order_month,
+    delivered_orders,
+    round(late_delivery_rate * 100, 1) as late_pct,
+    round(avg_delivery_delay_days, 1)  as avg_delay_days
+from mart_delivery_reliability
+order by order_month;
+```
+
+Then **switch the result from table view to the chart view** (the chart toggle
+above the results) and put `order_month` on the x-axis and `late_pct` on the
+y-axis.
+
+**What the data is telling you:**
+- **March 2018 spikes to a ~21.4% late rate** — far above neighboring months. That
+  is exactly the kind of anomaly worth investigating (a carrier issue? a demand
+  surge? a specific region or seller?). Finding the *question* is the analyst's job.
+- **`avg_delay_days` is negative in most months.** Delay is *actual delivery date
+  minus the estimated date*, so negative means orders typically arrive **ahead of
+  schedule** — Olist's delivery estimates are conservative. Good to know before you
+  report "late deliveries," because "late vs. the estimate" and "slow" are different
+  things.
+
+That's genuine analysis — a trend, an anomaly, and an assumption to document —
+straight from a SQL cell. The polished dashboard in `reports/` (see
+[`09_dashboards_evidence.md`](09_dashboards_evidence.md)) just makes this shareable.
+
+> Try the same move on `mart_seller_performance` (sort by `seller_gmv`, eyeball
+> `avg_review_score` and `late_delivery_rate`) or `mart_category_performance`
+> (which categories pair high GMV with low review scores?).
+
 ## Alternative: the DuckDB CLI
 If you install the standalone DuckDB CLI, you can launch the same UI directly:
 
