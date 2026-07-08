@@ -32,14 +32,13 @@ All green checks = you're connected.
 ## 3. Get the data (manual Kaggle download)
 We download the dataset **manually** (no Kaggle API for the MVP):
 
-1. Go to Kaggle.
-2. Search **Brazilian E-Commerce Public Dataset by Olist**.
-3. Open dataset slug: **olistbr/brazilian-ecommerce**.
-4. Click **Download**.
-5. Unzip the downloaded file.
-6. Copy **all CSV files** into the `seeds/` folder.
-7. Confirm the CSVs sit **directly under `seeds/`**, not inside a nested folder.
-8. Then run `dbt seed`.
+1. Open the dataset page (sign in to Kaggle first — a free account is required):
+   https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?resource=download
+2. Click **Download** (downloads `archive.zip`).
+3. Unzip the downloaded file.
+4. Copy **all CSV files** into the `seeds/` folder.
+5. Confirm the CSVs sit **directly under `seeds/`**, not inside a nested folder.
+6. Then run `dbt seed`.
 
 Confirm the files are in place:
 
