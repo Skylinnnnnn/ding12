@@ -169,10 +169,22 @@ on Windows and macOS. See [`tutorial/08_explore_data_duckdb_ui.md`](tutorial/08_
 for that plus DuckDB-CLI and DBeaver alternatives. **Only one process can open
 `ding12.duckdb` at a time** — stop the UI (Ctrl+C) before running `dbt build`.
 
-## Dashboard plan
-Specs (audience, questions, metrics, charts, filters, example insights) live in
-[`dashboards/`](dashboards/): Executive Overview, Seller Performance, Delivery
-Reliability, Customer Experience.
+## Dashboards
+Two layers:
+- **Specs** (blueprints) in [`dashboards/`](dashboards/): audience, questions,
+  metrics, charts, filters, example insights.
+- **Live interactive dashboard** in [`reports/`](reports/), built with
+  [Evidence](https://evidence.dev) directly on the DuckDB marts — Executive
+  Overview, Seller Performance, Delivery Reliability, Customer Experience, and
+  Category Performance.
+
+Run it (after `dbt build`, with Node 18+ installed):
+```bash
+cd reports
+npm install        # one time
+npm run dev        # open http://localhost:3000
+```
+Full walkthrough (Windows + macOS): [`tutorial/09_dashboards_evidence.md`](tutorial/09_dashboards_evidence.md).
 
 ## Resume bullets & interview story
 See [`docs/resume_bullets.md`](docs/resume_bullets.md) and

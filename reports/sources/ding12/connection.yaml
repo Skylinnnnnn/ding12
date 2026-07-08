@@ -1,0 +1,6 @@
+name: ding12
+type: duckdb
+options:
+  # Path to the dbt-built DuckDB database, relative to this source directory.
+  # reports/sources/ding12/ -> ../../../ lands at the repo root.
+  filename: ../../../ding12.duckdb
