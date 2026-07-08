@@ -45,6 +45,9 @@ into tested, documented, dashboard-ready marts covering:
 | **GitHub Actions** | Rebuilds and publishes the dashboard to GitHub Pages. |
 
 ## Reading order
+Follow the end-to-end **[build checklist](CHECKLIST.md)** as you go — it's the
+tick-through version of the chapters below.
+
 1. `00b_github_and_git_setup.md` — create your account, repo, and first commit.
 2. `01_environment_setup.md` — install, get the data, first run.
 3. `02_dbt_mental_model.md` — how dbt thinks.
@@ -55,3 +58,31 @@ into tested, documented, dashboard-ready marts covering:
 8. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
 9. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
 10. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
+
+## Official docs — keep these open
+Bookmark these; the ✍️ chapters expect you to reference them while you write.
+
+**dbt (official docs, docs.getdbt.com):**
+- [Install dbt Core](https://docs.getdbt.com/docs/core/installation-overview) ·
+  [dbt-duckdb adapter setup](https://docs.getdbt.com/docs/core/connect-data-platform/duckdb-setup)
+- [How we structure dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview)
+  (the staging → intermediate → marts pattern)
+- [Models](https://docs.getdbt.com/docs/build/models) ·
+  [Materializations](https://docs.getdbt.com/docs/build/materializations) ·
+  [`ref()`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref) ·
+  [Seeds](https://docs.getdbt.com/docs/build/seeds)
+- [Data tests](https://docs.getdbt.com/docs/build/data-tests) ·
+  [Test properties (unique/not_null/relationships/accepted_values)](https://docs.getdbt.com/reference/resource-properties/data-tests)
+- [`dbt_project.yml` reference](https://docs.getdbt.com/reference/dbt_project.yml) ·
+  [Connection profiles](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles) ·
+  [dbt commands](https://docs.getdbt.com/reference/dbt-commands)
+- [Jinja & macros](https://docs.getdbt.com/docs/build/jinja-macros) ·
+  [Documentation & `dbt docs`](https://docs.getdbt.com/docs/build/documentation)
+
+**Other tools:**
+- [DuckDB docs](https://duckdb.org/docs/) ·
+  [DuckDB UI](https://duckdb.org/docs/stable/core_extensions/ui)
+- [Evidence docs](https://docs.evidence.dev/) ·
+  [Evidence components](https://docs.evidence.dev/components/all-components/)
+- [GitHub Docs: Hello World / repos](https://docs.github.com/en/get-started/quickstart/hello-world) ·
+  [GitHub Pages](https://docs.github.com/en/pages)

@@ -112,6 +112,13 @@ average review score, low review rate, active customers. Full definitions in
 [`docs/metrics_glossary.md`](docs/metrics_glossary.md); assumptions in
 [`docs/business_assumptions.md`](docs/business_assumptions.md).
 
+## Learn by building it yourself
+New to dbt/Git/DuckDB? The [`tutorial/`](tutorial/) series is a from-scratch,
+build-along guide (Windows + macOS) written for a strong SQL analyst — create
+your own repo and build each layer, using this repo as the answer key. Start with
+[`tutorial/00_project_overview.md`](tutorial/00_project_overview.md) and tick
+through the [build checklist](tutorial/CHECKLIST.md).
+
 ---
 
 ## Setup & run (local MVP)
