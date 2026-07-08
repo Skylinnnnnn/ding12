@@ -29,6 +29,23 @@ Your **models, `ref()`s, tests, marts, metric definitions, and GitHub repo
 structure**. That portability is the payoff: the same governed transformation
 layer runs on a real cloud warehouse with scheduled jobs.
 
+## Important: Cloud changes the *environment*, not who writes the code
+A common misconception is that dbt Cloud "auto-generates" your models or your
+`schema.yml` tests. It does **not**. In *both* dbt Core (local) and dbt Cloud,
+**you write the model SQL and the tests by hand** — that's the actual analytics
+work, and it's identical either way. dbt Cloud only changes the *surroundings*:
+a browser IDE instead of VS Code, managed environments instead of your laptop,
+a scheduler, and hosted docs. Don't arrive at Cloud expecting it to do the
+modeling for you.
+
+Anything that *does* scaffold boilerplate — `dbt init` (project skeleton) or the
+[`dbt-codegen`](https://github.com/dbt-labs/dbt-codegen) package (which can stub
+out a `schema.yml` with your columns pre-listed) — runs perfectly in **local
+Core too**. So building locally costs you nothing in convenience; it just makes
+the ✍️ parts (the models and tests) explicit, which is where the learning is.
+dbt Cloud does have an AI add-on ("dbt Copilot") that can *suggest* docs/tests,
+but that's a paid feature and a suggestion, not automatic generation.
+
 ## Why this matters for tech-company analytics roles
 This is the setup most modern data teams actually use. Being able to say "I built
 it locally to prove the logic, then ran the identical dbt project on BigQuery via

@@ -237,3 +237,8 @@ hosted docs/lineage). This is a polish phase, **not** required for the MVP and
    or browse the deployed one at https://skylinnnnnn.github.io/ding12/.
 4. When ready, follow the cloud migration plan for the dbt Cloud + BigQuery
    version.
+
+**Finished the tutorial?** [`docs/next_steps.md`](docs/next_steps.md) is the
+roadmap for what to build next — running the same project on a real cloud
+warehouse (BigQuery/Snowflake) with scheduled jobs and CI, i.e. the industry
+connection chain: GitHub → dbt → cloud warehouse.

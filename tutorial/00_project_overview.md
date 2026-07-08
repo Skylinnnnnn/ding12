@@ -59,6 +59,10 @@ tick-through version of the chapters below.
 9. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
 10. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
 
+**Done with all of it?** [`../docs/next_steps.md`](../docs/next_steps.md) is your
+roadmap for after the tutorial — running the same project on a real cloud
+warehouse (BigQuery/Snowflake) with scheduled jobs and CI.
+
 ## Official docs — keep these open
 Bookmark these; the ✍️ chapters expect you to reference them while you write.
 
