@@ -30,7 +30,7 @@ into tested, documented, dashboard-ready marts covering:
 
 ## The mental model in one line
 **Raw seeds → staging (clean) → intermediate (business logic) → marts
-(aggregated for dashboards)**, with tests and docs attached along the way.
+(aggregated) → live dashboard**, with tests and docs attached along the way.
 
 ## How the pieces fit
 | Piece | Role |
