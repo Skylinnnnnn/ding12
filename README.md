@@ -119,6 +119,8 @@ your own repo and build each layer, using this repo as the answer key. Start wit
 [`tutorial/00_project_overview.md`](tutorial/00_project_overview.md) and tick
 through the [build checklist](tutorial/CHECKLIST.md).
 
+Presenting the project live? See [`docs/demo_runbook.md`](docs/demo_runbook.md).
+
 ---
 
 ## Setup & run (local MVP)
