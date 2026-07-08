@@ -4,6 +4,13 @@ Intermediate models hold **reusable business logic and joins**. They're the
 bridge between clean staging tables and aggregated marts. They're views, and
 they're not meant to be queried directly by dashboards.
 
+> ✍️ **Write these yourself** — this is where the real modeling judgment lives
+> (grain, joins, derived flags). Do the thinking before peeking. For each model,
+> decide the grain *first*, then write the SQL. Check against the
+> [reference `models/intermediate/`](https://github.com/Skylinnnnnn/ding12/tree/main/models/intermediate)
+> after your attempt. The `schema.yml` here is lighter than staging — short model
+> and column descriptions, plus a `unique`+`not_null` on the order-grain keys.
+
 ## The five intermediate models
 | Model | Grain | Purpose |
 | --- | --- | --- |
@@ -32,3 +39,9 @@ Olist has orders with multiple reviews and repeated review_ids. Downstream, when
 we want a per-seller or per-category review score, we **average per order first**,
 then average up. That two-step avoids double-counting orders that touched many
 items or sellers.
+
+## Run it, then commit
+```bash
+dbt build --select intermediate   # build + test the intermediate views
+git add -A && git commit -m "Add intermediate models" && git push
+```

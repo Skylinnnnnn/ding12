@@ -1,8 +1,22 @@
 # 01 — Environment Setup
 
 > **This guide covers both Windows and macOS/Linux.** Commands are shown for each
-> where they differ. Run everything from the repo root (the folder with
-> `dbt_project.yml`).
+> where they differ. Run everything from the repo root (the folder you `git init`ed
+> in chapter `00b`).
+
+## Create the project config files  📋 copy
+These are configuration/boilerplate — **copy them** from the reference repo into
+your repo root, then read each one so you know what it does (don't just paste
+blindly). Look up anything unfamiliar in the [dbt project config docs](https://docs.getdbt.com/reference/dbt_project.yml).
+
+| File | What it does | Reference |
+| --- | --- | --- |
+| `requirements.txt` | Python packages (dbt-core, dbt-duckdb, duckdb, pandas) | [reference](https://github.com/Skylinnnnnn/ding12/blob/main/requirements.txt) |
+| `.gitignore` | Keeps venv, DuckDB files, secrets, and artifacts out of Git | [reference](https://github.com/Skylinnnnnn/ding12/blob/main/.gitignore) |
+| `dbt_project.yml` | Names the project, sets paths, and the view/table strategy | [reference](https://github.com/Skylinnnnnn/ding12/blob/main/dbt_project.yml) |
+| `profiles.example.yml` | The DuckDB connection template | [reference](https://github.com/Skylinnnnnn/ding12/blob/main/profiles.example.yml) |
+
+Commit them: `git add -A && git commit -m "Add project config" && git push`.
 
 ## 0. Check your Python version first (important)
 dbt supports **Python 3.9–3.13**. It does **not** yet run on Python **3.14**, and

@@ -3,6 +3,19 @@
 Staging is the **clean, standardized version of raw data** — not the business
 logic layer. One staging model per source table.
 
+> ✍️ **Write these yourself.** The SQL is easy for you; the point is to internalize
+> the *pattern* (`ref()`, one model per source, explicit casts). Work in the
+> *worked example → you try* rhythm: write `stg_orders.sql` fully (below), run it,
+> then write the other seven from the same template. Check against the
+> [reference `models/staging/`](https://github.com/Skylinnnnnn/ding12/tree/main/models/staging)
+> only after you've attempted each.
+>
+> ✍️ **`schema.yml` is the highest-value thing to hand-write.** Declarative tests
+> are *new* dbt knowledge — don't copy them. Keep the
+> [dbt tests docs](https://docs.getdbt.com/docs/build/data-tests) and
+> [test properties](https://docs.getdbt.com/reference/resource-properties/data-tests)
+> open, write the tests for one model, then repeat.
+
 ## Rules we follow
 - Reference the seed with `ref()` using the seed name **without `.csv`**:
   `ref('olist_orders_dataset')`.
@@ -43,3 +56,10 @@ Olist has **duplicate `order_id`s** in payments, reviews, and order_items (an
 order can have several items/payments/reviews). So we do **not** put `unique`
 tests on those `order_id`s — we put uniqueness only where it's actually true.
 When real data contradicts an assumption, fix the assumption, not the data.
+
+## Run it, then commit
+```bash
+dbt run  --select staging   # build the eight staging views
+dbt test --select staging   # run their tests
+git add -A && git commit -m "Add staging models and tests" && git push
+```

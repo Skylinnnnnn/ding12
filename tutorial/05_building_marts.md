@@ -4,6 +4,14 @@ Marts are the **business-facing outputs**. Each mart answers a specific set of
 questions at a specific grain, and each is materialized as a **table** so
 dashboards read it fast.
 
+> ✍️ **Write these yourself**, one mart at a time, checking each against the
+> [reference `models/marts/`](https://github.com/Skylinnnnnn/ding12/tree/main/models/marts).
+> 📋 **`macros/safe_divide.sql` is tiny — copy it**, then use it for every rate so
+> you never divide by zero. Keep your
+> [`docs/metrics_glossary.md`](../docs/metrics_glossary.md) open and make sure each
+> metric you write matches its definition — that discipline is the whole point of a
+> mart layer.
+
 ## The six marts
 | Mart | Grain | Feeds |
 | --- | --- | --- |
@@ -38,4 +46,9 @@ dbt build            # seed + run + test in dependency order
 # or step by step:
 dbt run --select marts
 dbt test --select marts
+
+git add -A && git commit -m "Add marts, macro, and singular tests" && git push
 ```
+
+At this point you have a complete, tested warehouse — the hard part is done.
+Chapters 06/08 show how to explore it, and 09 puts a dashboard on top.

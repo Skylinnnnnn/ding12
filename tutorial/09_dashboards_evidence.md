@@ -14,14 +14,33 @@ reflect the same tested marts.
   - **macOS:** `brew install node`
   - Check with `node --version`.
 
-## One-time setup
-Install the Evidence project's dependencies:
+## One-time setup — scaffold the project  📋 copy the scaffold, ✍️ write the pages
+Don't hand-write the Evidence scaffold — generate it with the official template,
+then delete the sample source:
 
 ```bash
 # from the repo root
+npx degit evidence-dev/template reports
 cd reports
 npm install
+rm -rf sources/needful_things        # remove the sample data source
 ```
+
+Now wire it to your marts (these are small — write them, referencing the
+[reference `reports/`](https://github.com/Skylinnnnnn/ding12/tree/main/reports)):
+- 📋 `sources/ding12/connection.yaml` — points at `../../../ding12.duckdb`.
+- ✍️ `sources/ding12/*.sql` — one line each: `select * from mart_<name>`.
+- ✍️ `pages/*.md` — the dashboard pages (SQL blocks + `<LineChart>`, `<BigValue>`,
+  `<DataTable>`…). This is the fun part — see the
+  [Evidence components docs](https://docs.evidence.dev/components/all-components/).
+
+## Run it (local dev server)
+```bash
+# from the reports/ folder
+npm run dev
+```
+Open **http://localhost:3000**. Edit any file in `reports/pages/` and the browser
+updates live. Press **Ctrl+C** to stop.
 
 ## Run it (local dev server)
 ```bash
@@ -64,18 +83,28 @@ npm run sources     # re-pull the marts from DuckDB
 > `dbt build` at the exact same moment or you may hit a lock error. Run them
 > one at a time.
 
-## Deploying — automated GitHub Pages
-This repo ships a GitHub Actions workflow (`.github/workflows/deploy.yml`) that
-**auto-publishes the dashboard on every push to `main`**. The workflow:
+## Deploying — automated GitHub Pages  📋 copy, then adjust for your repo
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) **auto-publishes the
+dashboard on every push to `main`**. The workflow:
 1. installs dbt and builds `ding12.duckdb` from the committed seeds,
-2. installs Evidence deps and builds the static site (with base path `/ding12`),
+2. materializes Evidence sources and builds the static site (with a base path),
 3. deploys it to GitHub Pages.
 
-Live URL: **https://skylinnnnnn.github.io/ding12/**
+📋 **Copy** [`.github/workflows/deploy.yml`](https://github.com/Skylinnnnnn/ding12/blob/main/.github/workflows/deploy.yml)
+— it's infrastructure, not something to author by hand. **But adjust two things
+for your own repo:**
+- the **base path** must equal `/<your-repo-name>` (the "Set base path" step),
+- your live URL will be **`https://<your-username>.github.io/<your-repo-name>/`**.
+
+> ⚠️ **The `npm run sources` step is essential.** `evidence build` does *not*
+> materialize the data — without a sources step the deployed site loads but every
+> query fails ("Timeout while initializing database"). Ask me how I know. 🙂
 
 **One-time repo setting:** in GitHub → **Settings → Pages → Build and deployment**,
 set **Source = GitHub Actions** (the workflow's `configure-pages` step usually
-enables this automatically on the first run).
+enables this automatically on the first run). Pushing a workflow file also needs
+the `workflow` scope on your login — if `git push` is rejected, run
+`gh auth refresh -h github.com -s workflow`.
 
 Because it builds from the committed seeds, the deploy needs no secrets and no
 Kaggle download. `npm run build` still works locally too (outputs to

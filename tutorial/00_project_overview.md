@@ -5,6 +5,23 @@ modern analytics-engineering project. You already know SQL and business
 analytics deeply — the goal here is to connect that expertise to the tooling
 (Git, terminal, dbt, DuckDB, docs) that modern data teams use.
 
+## How to use these tutorials
+**Build your own copy from scratch.** Create your own GitHub account and your own
+`ding12` repo (chapter `00b`), then build each piece into it as you read. Don't
+clone the reference repo and run it — the learning is in the doing.
+
+Use the **reference repo as an answer key** to check your work when you're stuck:
+https://github.com/Skylinnnnnn/ding12
+
+Each build chapter marks files two ways:
+- ✍️ **Write this yourself** — where the real learning is (SQL models, dbt tests).
+  Type it, referencing the linked docs.
+- 📋 **Copy this** — plumbing/config where typing teaches nothing (project config,
+  `.gitignore`, CI workflow). Copy it, but read it so you understand what it does.
+
+The pattern within a layer is *worked example → you try*: build one model + its
+tests fully, then repeat the pattern for the rest.
+
 ## What Ding12 is
 A commerce-marketplace analytics project that turns raw Olist e-commerce CSVs
 into tested, documented, dashboard-ready marts covering:
@@ -28,12 +45,13 @@ into tested, documented, dashboard-ready marts covering:
 | **GitHub Actions** | Rebuilds and publishes the dashboard to GitHub Pages. |
 
 ## Reading order
-1. `01_environment_setup.md` — install, get the data, first run.
-2. `02_dbt_mental_model.md` — how dbt thinks.
-3. `03_building_staging_models.md`
-4. `04_building_intermediate_models.md`
-5. `05_building_marts.md`
-6. `06_dbt_docs_local_ui.md` — lineage and docs UI.
-7. `07_dbt_cloud_bigquery.md` — the future production-like path.
+1. `00b_github_and_git_setup.md` — create your account, repo, and first commit.
+2. `01_environment_setup.md` — install, get the data, first run.
+3. `02_dbt_mental_model.md` — how dbt thinks.
+4. `03_building_staging_models.md`  ✍️
+5. `04_building_intermediate_models.md`  ✍️
+6. `05_building_marts.md`  ✍️
+7. `06_dbt_docs_local_ui.md` — lineage and docs UI.
 8. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
-9. `09_dashboards_evidence.md` — the live Evidence dashboard and how it deploys.
+9. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
+10. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
