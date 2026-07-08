@@ -1,40 +1,65 @@
 # 01 — Environment Setup
 
+> **This guide covers both Windows and macOS/Linux.** Commands are shown for each
+> where they differ. Run everything from the repo root (the folder with
+> `dbt_project.yml`).
+
 ## 0. Check your Python version first (important)
 dbt supports **Python 3.9–3.13**. It does **not** yet run on Python **3.14**, and
 `pip install` will fail if that's your default. Check:
 
 ```bash
+# Windows
+python --version
+
+# macOS / Linux
 python3 --version
 ```
 
-- If it says 3.9–3.13, you're good — use `python3` below.
-- If it says **3.14** (or you're unsure), install a supported version. On macOS
-  with Homebrew:
-  ```bash
-  brew install python@3.12
-  ```
-  Then use the full path `/opt/homebrew/opt/python@3.12/bin/python3.12` in place
-  of `python3` in the next step (just for creating the venv — once the venv
-  exists, `python`/`pip` inside it are already the right version).
+If it says 3.9–3.13, you're good. If it says **3.14** (or Python isn't installed):
+
+- **Windows:** install 3.12 from the Microsoft Store or python.org, or run
+  `winget install Python.Python.3.12`. Then use `py -3.12` in place of `python`
+  when creating the venv in step 1.
+- **macOS (Homebrew):** `brew install python@3.12`, then use the full path
+  `/opt/homebrew/opt/python@3.12/bin/python3.12` in place of `python3` in step 1.
+
+(You only need the specific version to *create* the venv — once it exists, the
+`python`/`pip` inside it are already the right version.)
 
 ## 1. Python virtual environment
 A virtual environment keeps this project's packages isolated from the rest of
-your machine. From the repo root:
+your machine.
 
 ```bash
-python3 -m venv .venv          # or the python@3.12 path from step 0
-source .venv/bin/activate      # macOS/Linux
+# Windows (PowerShell)
+py -3.12 -m venv .venv               # or: python -m venv .venv
+.venv\Scripts\Activate.ps1           # activate (Command Prompt: .venv\Scripts\activate.bat)
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+# macOS / Linux
+python3 -m venv .venv                # or the python@3.12 path from step 0
+source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+> **Windows PowerShell note:** if `Activate.ps1` is blocked by an execution
+> policy, run once: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, then
+> activate again.
+
 You'll know it worked when your prompt shows `(.venv)` and `dbt --version` runs.
 
 ## 2. Point dbt at DuckDB (the profile)
-dbt reads connection settings from `~/.dbt/profiles.yml`. We ship a template:
+dbt reads connection settings from a `profiles.yml` in your user dbt folder.
 
 ```bash
+# Windows (PowerShell)
+mkdir $HOME\.dbt -Force
+copy profiles.example.yml $HOME\.dbt\profiles.yml
+
+# macOS / Linux
 mkdir -p ~/.dbt
 cp profiles.example.yml ~/.dbt/profiles.yml
 ```
@@ -62,6 +87,10 @@ We download the dataset **manually** (no Kaggle API for the MVP):
 Confirm the files are in place:
 
 ```bash
+# Windows
+dir seeds\*.csv
+
+# macOS / Linux
 ls seeds/*.csv
 ```
 
@@ -80,3 +109,11 @@ dbt build     # (alternative) seed + run + test in dependency order
 
 If `dbt seed` can't find the CSVs, revisit step 3 — the files must be directly
 under `seeds/`.
+
+## 5. See the data in a UI
+To explore the tables visually in your browser, see
+[`08_explore_data_duckdb_ui.md`](08_explore_data_duckdb_ui.md):
+
+```bash
+python scripts/open_ui.py     # opens http://localhost:4213
+```

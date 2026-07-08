@@ -105,10 +105,12 @@ average review score, low review rate, active customers. Full definitions in
 
 ## Setup & run (local MVP)
 > **Python version:** dbt needs **Python 3.9–3.13** (not 3.14). Check with
-> `python3 --version`. On macOS, if you're on 3.14, run `brew install python@3.12`
-> and create the venv with `/opt/homebrew/opt/python@3.12/bin/python3.12` instead
-> of `python3`. Details in [`tutorial/01_environment_setup.md`](tutorial/01_environment_setup.md).
+> `python3 --version` (Windows: `python --version`). If you're on 3.14: Windows →
+> `winget install Python.Python.3.12`; macOS → `brew install python@3.12`. Full
+> **Windows + macOS/Linux** step-by-step (including venv activation and the DuckDB
+> UI) is in [`tutorial/01_environment_setup.md`](tutorial/01_environment_setup.md).
 
+macOS / Linux:
 ```bash
 # 1. Environment
 python3 -m venv .venv
@@ -127,12 +129,45 @@ ls seeds/*.csv
 # 4. Build & test
 dbt seed
 dbt build           # seed + run + test in dependency order
-# (or granular: dbt run && dbt test)
 
-# 5. Docs & lineage UI
+# 5. Docs & lineage UI, and the DuckDB data UI
 dbt docs generate
-dbt docs serve      # opens http://localhost:8080 ; Ctrl+C to stop
+dbt docs serve            # lineage/docs at http://localhost:8080 ; Ctrl+C to stop
+python scripts/open_ui.py # browse the actual data at http://localhost:4213
 ```
+
+Windows (PowerShell) — same steps, different shell:
+```powershell
+# 1. Environment
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+# 2. dbt profile -> DuckDB
+mkdir $HOME\.dbt -Force
+copy profiles.example.yml $HOME\.dbt\profiles.yml
+dbt debug
+
+# 3. Data: download Kaggle CSVs manually, unzip, copy into seeds\, then:
+dir seeds\*.csv
+
+# 4. Build & test
+dbt seed
+dbt build
+
+# 5. Docs UI + DuckDB data UI
+dbt docs generate
+dbt docs serve
+python scripts\open_ui.py
+```
+
+### Explore the data visually (DuckDB UI)
+`python scripts/open_ui.py` opens DuckDB's built-in browser UI at
+http://localhost:4213 to browse every seed/view/mart and run SQL — works the same
+on Windows and macOS. See [`tutorial/08_explore_data_duckdb_ui.md`](tutorial/08_explore_data_duckdb_ui.md)
+for that plus DuckDB-CLI and DBeaver alternatives. **Only one process can open
+`ding12.duckdb` at a time** — stop the UI (Ctrl+C) before running `dbt build`.
 
 ## Dashboard plan
 Specs (audience, questions, metrics, charts, filters, example insights) live in
