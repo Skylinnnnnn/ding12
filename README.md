@@ -104,10 +104,16 @@ average review score, low review rate, active customers. Full definitions in
 ---
 
 ## Setup & run (local MVP)
+> **Python version:** dbt needs **Python 3.9–3.13** (not 3.14). Check with
+> `python3 --version`. On macOS, if you're on 3.14, run `brew install python@3.12`
+> and create the venv with `/opt/homebrew/opt/python@3.12/bin/python3.12` instead
+> of `python3`. Details in [`tutorial/01_environment_setup.md`](tutorial/01_environment_setup.md).
+
 ```bash
 # 1. Environment
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 
 # 2. dbt profile -> DuckDB

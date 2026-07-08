@@ -1,12 +1,31 @@
 # 01 — Environment Setup
 
+## 0. Check your Python version first (important)
+dbt supports **Python 3.9–3.13**. It does **not** yet run on Python **3.14**, and
+`pip install` will fail if that's your default. Check:
+
+```bash
+python3 --version
+```
+
+- If it says 3.9–3.13, you're good — use `python3` below.
+- If it says **3.14** (or you're unsure), install a supported version. On macOS
+  with Homebrew:
+  ```bash
+  brew install python@3.12
+  ```
+  Then use the full path `/opt/homebrew/opt/python@3.12/bin/python3.12` in place
+  of `python3` in the next step (just for creating the venv — once the venv
+  exists, `python`/`pip` inside it are already the right version).
+
 ## 1. Python virtual environment
 A virtual environment keeps this project's packages isolated from the rest of
 your machine. From the repo root:
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv          # or the python@3.12 path from step 0
 source .venv/bin/activate      # macOS/Linux
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
