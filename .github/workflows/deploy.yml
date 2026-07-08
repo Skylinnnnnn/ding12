@@ -49,6 +49,9 @@ jobs:
         working-directory: reports
         run: |
           printf '\ndeployment:\n  basePath: /ding12\n' >> evidence.config.yaml
+      - name: Materialize Evidence sources (parquet) from DuckDB
+        working-directory: reports
+        run: npm run sources
       - name: Build Evidence site
         working-directory: reports
         run: npm run build
