@@ -5,7 +5,12 @@
 
 Ding12 transforms raw Olist marketplace data into **tested, documented,
 dashboard-ready marts** for marketplace growth, seller performance, delivery
-reliability, customer experience, category performance, and payment behavior.
+reliability, customer experience, category performance, and payment behavior —
+and serves them through a **live interactive dashboard**.
+
+### 📊 Live dashboard: https://skylinnnnnn.github.io/ding12/
+Built with [Evidence](https://evidence.dev) on the dbt marts and auto-deployed
+from `main` via GitHub Actions.
 
 **The current MVP is local-first using dbt Core and DuckDB.** A future polish
 version will migrate the same project to **dbt Cloud with BigQuery** to
@@ -60,6 +65,9 @@ Modeled seed files (geolocation is intentionally excluded from the MVP):
 | Warehouse (MVP) | DuckDB |
 | Transformations | dbt Core + dbt-duckdb |
 | Docs & lineage | dbt docs |
+| Data exploration | DuckDB browser UI |
+| Dashboards | Evidence (SQL + markdown BI) |
+| Deployment | GitHub Actions → GitHub Pages |
 | Future polish | dbt Cloud + BigQuery |
 
 ## Repo structure
@@ -77,10 +85,13 @@ Ding12/
 │   └── marts/            # mart_* (tables: dashboard-ready)
 ├── macros/               # safe_divide
 ├── tests/                # singular data-quality tests
+├── scripts/              # open_ui.py (DuckDB browser UI launcher)
 ├── analyses/             # ad-hoc, non-materialized SQL
-├── dashboards/           # business-facing dashboard specs
+├── dashboards/           # business-facing dashboard specs (blueprints)
+├── reports/              # live Evidence dashboard (reads the DuckDB marts)
 ├── docs/                 # glossary, assumptions, interview story, resume, cloud plan
-└── tutorial/             # step-by-step guide (00–07)
+├── tutorial/             # step-by-step guide (00–09)
+└── .github/workflows/    # deploy.yml — build + publish dashboard to Pages
 ```
 
 ## dbt model architecture
@@ -178,10 +189,15 @@ Two layers:
   Overview, Seller Performance, Delivery Reliability, Customer Experience, and
   Category Performance.
 
-Run it (after `dbt build`, with Node 18+ installed):
+**Live URL:** https://skylinnnnnn.github.io/ding12/ — auto-published on every push
+to `main` by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which
+rebuilds the warehouse with dbt (from the committed seeds) and redeploys.
+
+Run it locally (after `dbt build`, with Node 18+ installed):
 ```bash
 cd reports
 npm install        # one time
+npm run sources    # materialize the marts to parquet
 npm run dev        # open http://localhost:3000
 ```
 Full walkthrough (Windows + macOS): [`tutorial/09_dashboards_evidence.md`](tutorial/09_dashboards_evidence.md).
@@ -206,7 +222,9 @@ hosted docs/lineage). This is a polish phase, **not** required for the MVP and
 
 ## Next steps
 1. Download the Kaggle CSVs into `seeds/` and run `dbt build`.
-2. Explore lineage with `dbt docs serve`.
-3. Point a BI tool (or `dashboards/` specs) at the marts.
+2. Explore the data in the DuckDB UI (`python scripts/open_ui.py`) and lineage
+   with `dbt docs serve`.
+3. Run the live dashboard locally (`cd reports && npm run sources && npm run dev`),
+   or browse the deployed one at https://skylinnnnnn.github.io/ding12/.
 4. When ready, follow the cloud migration plan for the dbt Cloud + BigQuery
    version.

@@ -1,5 +1,9 @@
 # Dashboard — Delivery Reliability
 
+> **Live page:** https://skylinnnnnn.github.io/ding12/delivery_reliability/ · built
+> in [`reports/pages/delivery_reliability.md`](../reports/pages/delivery_reliability.md).
+> This file is the spec; the Evidence page is the implementation.
+
 **Primary source:** `mart_delivery_reliability` (grain: order_month).
 
 ## Audience

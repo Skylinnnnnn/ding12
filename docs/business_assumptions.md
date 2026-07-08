@@ -43,7 +43,9 @@ documented analytics-engineering workflow with clear business framing.
   (assumption #6) instead of weakening the test.
 
 ## Scope
-- **Geolocation is excluded** from the MVP to keep scope controlled. The seed is
-  kept in `seeds/` if present but is not modeled.
+- **Geolocation is excluded** from the MVP to keep scope controlled. It is not
+  modeled, and the large (~58 MB) `olist_geolocation_dataset.csv` is gitignored
+  (not committed) — the other 8 seeds are committed so the project builds after a
+  clone with no Kaggle download.
 - No Airflow/Spark/Docker/cloud in the MVP. A dbt Cloud + BigQuery polish phase
   is documented in `cloud_migration_plan.md` but intentionally not implemented.

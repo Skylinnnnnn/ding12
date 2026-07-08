@@ -20,10 +20,12 @@ into tested, documented, dashboard-ready marts covering:
 | --- | --- |
 | **GitHub repo** | Source of truth for all code and definitions. |
 | **VS Code** | Editor. |
-| **Terminal** | Where you run `dbt` commands. |
-| **DuckDB** | Local analytics database (a single file). |
+| **Terminal** | Where you run `dbt` and `npm` commands. |
+| **DuckDB** | Local analytics database (a single file) + a browser UI to explore it. |
 | **dbt Core** | SQL transformation + testing + docs framework. |
 | **dashboards/** | Business-facing specs the marts are designed to feed. |
+| **reports/** (Evidence) | The live interactive dashboard built on the marts. |
+| **GitHub Actions** | Rebuilds and publishes the dashboard to GitHub Pages. |
 
 ## Reading order
 1. `01_environment_setup.md` — install, get the data, first run.
@@ -33,3 +35,5 @@ into tested, documented, dashboard-ready marts covering:
 5. `05_building_marts.md`
 6. `06_dbt_docs_local_ui.md` — lineage and docs UI.
 7. `07_dbt_cloud_bigquery.md` — the future production-like path.
+8. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
+9. `09_dashboards_evidence.md` — the live Evidence dashboard and how it deploys.

@@ -1,5 +1,9 @@
 # Dashboard — Executive Overview
 
+> **Live page:** https://skylinnnnnn.github.io/ding12/ · built in
+> [`reports/pages/index.md`](../reports/pages/index.md). This file is the spec;
+> the Evidence page is the implementation.
+
 **Primary source:** `mart_daily_marketplace_metrics` (grain: order_date), with
 `mart_category_performance` for the category breakdown.
 

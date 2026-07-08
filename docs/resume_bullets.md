@@ -11,11 +11,12 @@ Pick and tailor. Numbers refer to the Olist dataset (~100k orders, ~3k sellers,
   cancellation rates, late-delivery rate, review scores) in a shared glossary.
 
 ## BI Analyst / Business Intelligence Engineer
-- Delivered dashboard-ready data marts and dashboard specs (executive overview,
-  seller performance, delivery reliability, customer experience) with defined
-  audiences, metrics, filters, and example insights.
-- Modeled daily/monthly reporting grains so BI tools read pre-aggregated tables
-  instead of recomputing metrics on the fly.
+- Built and shipped a live, multi-page analytics dashboard (Evidence) on top of
+  dbt marts — executive overview, seller, delivery, customer experience, and
+  category views — publicly deployed via GitHub Actions to GitHub Pages.
+- Modeled daily/monthly reporting grains so the dashboard reads pre-aggregated
+  tables instead of recomputing metrics on the fly, and documented every metric
+  in a shared glossary.
 
 ## Analytics Engineer / technical analyst
 - Engineered a dbt (Core) + DuckDB project with a staging → intermediate → marts
@@ -23,6 +24,8 @@ Pick and tailor. Numbers refer to the Olist dataset (~100k orders, ~3k sellers,
 - Implemented a data-quality test suite — uniqueness, not-null, referential
   integrity across the order graph, accepted-values, and custom singular tests —
   and generated lineage/documentation with dbt docs.
+- Automated deployment with a GitHub Actions pipeline that rebuilds the warehouse
+  from version-controlled seeds and publishes the dashboard on every push to main.
 
 ## Marketplace / Operations Analytics
 - Quantified delivery reliability (late-delivery rate, delay days,

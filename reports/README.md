@@ -1,48 +1,36 @@
-# Evidence Template Project
+# Ding12 — Evidence Dashboard
 
-## Using Codespaces
+The live, interactive dashboard for the Ding12 marketplace analytics project,
+built with [Evidence](https://evidence.dev). It reads directly from the dbt-built
+`ding12.duckdb` (one level up in the repo root) and renders charts from SQL +
+markdown.
 
-If you are using this template in Codespaces, click the `Start Evidence` button in the bottom status bar. This will install dependencies and open a preview of your project in your browser - you should get a popup prompting you to open in browser.
+**Live:** https://skylinnnnnn.github.io/ding12/ — auto-deployed from `main` by
+`.github/workflows/deploy.yml`.
 
-Or you can use the following commands to get started:
-
-```bash
-npm install
-npm run sources
-npm run dev -- --host 0.0.0.0
-```
-
-See [the CLI docs](https://docs.evidence.dev/cli/) for more command information.
-
-**Note:** Codespaces is much faster on the Desktop app. After the Codespace has booted, select the hamburger menu → Open in VS Code Desktop.
-
-## Get Started from VS Code
-
-The easiest way to get started is using the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Evidence.evidence-vscode):
-
-
-
-1. Install the extension from the VS Code Marketplace
-2. Open the Command Palette (Ctrl/Cmd + Shift + P) and enter `Evidence: New Evidence Project`
-3. Click `Start Evidence` in the bottom status bar
-
-## Get Started using the CLI
+## Run it locally
+Prerequisites: run `dbt build` in the repo root first (so `ding12.duckdb` exists),
+and have **Node.js 18+** installed.
 
 ```bash
-npx degit evidence-dev/template my-project
-cd my-project 
-npm install 
-npm run sources
-npm run dev 
+# from this reports/ folder
+npm install        # one time
+npm run sources    # materialize the marts to parquet (required before dev/build)
+npm run dev        # http://localhost:3000  (Ctrl+C to stop)
 ```
 
-Check out the docs for [alternative install methods](https://docs.evidence.dev/getting-started/install-evidence) including Docker, Github Codespaces, and alongside dbt.
+## Layout
+```
+reports/
+├── sources/ding12/          # connection.yaml -> ../../../ding12.duckdb + one .sql per mart
+├── pages/                   # the dashboard pages (index = Executive Overview)
+└── evidence.config.yaml     # theme + plugins (basePath is set only in CI)
+```
+Each `.sql` in `sources/ding12/` exposes a mart as `ding12.<name>` to the pages.
 
+Full walkthrough (Windows + macOS): [`../tutorial/09_dashboards_evidence.md`](../tutorial/09_dashboards_evidence.md).
 
-
-## Learning More
-
-- [Docs](https://docs.evidence.dev/)
-- [Github](https://github.com/evidence-dev/evidence)
-- [Slack Community](https://slack.evidence.dev/)
-- [Evidence Home Page](https://www.evidence.dev)
+## Notes
+- **One process per DuckDB file:** stop `npm run dev` before running `dbt build`.
+- `npm run build` outputs a static site to `build/` (what CI publishes).
+- Evidence docs: https://docs.evidence.dev/

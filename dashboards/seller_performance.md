@@ -1,5 +1,9 @@
 # Dashboard — Seller Performance
 
+> **Live page:** https://skylinnnnnn.github.io/ding12/seller_performance/ · built
+> in [`reports/pages/seller_performance.md`](../reports/pages/seller_performance.md).
+> This file is the spec; the Evidence page is the implementation.
+
 **Primary source:** `mart_seller_performance` (grain: seller_id).
 
 ## Audience

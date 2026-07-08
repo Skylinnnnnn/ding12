@@ -9,6 +9,11 @@ a more production-like workflow; it should **not block** the portfolio MVP.
 - GitHub repo is the source of truth.
 - Seeds → staging → intermediate → marts, with tests and docs.
 - Inspect lineage and documentation with `dbt docs serve` locally.
+- Explore the data in the DuckDB browser UI.
+- A live Evidence dashboard on the marts, auto-deployed to GitHub Pages via
+  GitHub Actions (https://skylinnnnnn.github.io/ding12/). This is a lightweight,
+  free deployment — the Stage 2 polish below swaps the *warehouse and execution*
+  layer, not the dashboard.
 
 ## Stage 2 — dbt Cloud + BigQuery polish
 1. Push the repo to GitHub (already the source of truth).

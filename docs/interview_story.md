@@ -9,7 +9,11 @@ Talking points for presenting Ding12 in interviews.
 > for marketplace growth, seller performance, delivery reliability, customer
 > experience, category performance, and payment behavior. It runs end-to-end
 > locally on dbt Core and DuckDB, with data-quality tests and lineage docs, and
-> I've scoped a dbt Cloud + BigQuery version as the production-like next step.
+> it's topped with a live interactive dashboard (Evidence) that auto-deploys from
+> GitHub to GitHub Pages. I've also scoped a dbt Cloud + BigQuery version as the
+> production-like next step.
+
+**Live dashboard:** https://skylinnnnnn.github.io/ding12/
 
 ## 3-minute deep dive
 - **Problem framing:** a marketplace leader needs to know if the business is
@@ -24,6 +28,16 @@ Talking points for presenting Ding12 in interviews.
 - **Business insight:** I can join seller GMV to review score and late-delivery
   rate to surface *high-value-but-risky* sellers — the kind of insight an ops or
   marketplace team acts on.
+- **Visualization & delivery:** the marts feed a live Evidence dashboard (SQL +
+  markdown), which a GitHub Actions workflow rebuilds and publishes to GitHub
+  Pages on every push — so the code, the data, and the dashboard never drift.
+
+## Why Evidence (for the dashboard)
+Code-based BI: charts are defined in SQL + markdown that live in the same Git repo
+as the models, so the dashboard is version-controlled and reads the exact same
+tested marts. On a static host it queries pre-built data in the browser via
+DuckDB-WASM — which is also why the deploy pipeline must *materialize the data*,
+not just build the site (a bug I hit and fixed).
 
 ## Why dbt
 Version-controlled SQL, dependency-managed `ref()` lineage, tests as first-class

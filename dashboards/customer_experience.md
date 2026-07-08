@@ -1,5 +1,9 @@
 # Dashboard — Customer Experience
 
+> **Live page:** https://skylinnnnnn.github.io/ding12/customer_experience/ · built
+> in [`reports/pages/customer_experience.md`](../reports/pages/customer_experience.md).
+> This file is the spec; the Evidence page is the implementation.
+
 **Primary source:** `mart_customer_experience` (grain: order_month), cross-read
 with `mart_delivery_reliability` for the delivery link.
 
