@@ -64,7 +64,19 @@ npm run sources     # re-pull the marts from DuckDB
 > `dbt build` at the exact same moment or you may hit a lock error. Run them
 > one at a time.
 
-## Deploying (optional, portfolio polish)
-`npm run build` outputs a static site to `reports/build/`. You can host it free on
-**Evidence Cloud**, Netlify, GitHub Pages, or Vercel to get a public URL for your
-portfolio. (Not required for the local MVP.)
+## Deploying — automated GitHub Pages
+This repo ships a GitHub Actions workflow (`.github/workflows/deploy.yml`) that
+**auto-publishes the dashboard on every push to `main`**. The workflow:
+1. installs dbt and builds `ding12.duckdb` from the committed seeds,
+2. installs Evidence deps and builds the static site (with base path `/ding12`),
+3. deploys it to GitHub Pages.
+
+Live URL: **https://skylinnnnnn.github.io/ding12/**
+
+**One-time repo setting:** in GitHub → **Settings → Pages → Build and deployment**,
+set **Source = GitHub Actions** (the workflow's `configure-pages` step usually
+enables this automatically on the first run).
+
+Because it builds from the committed seeds, the deploy needs no secrets and no
+Kaggle download. `npm run build` still works locally too (outputs to
+`reports/build/`) if you'd rather host on Evidence Cloud, Netlify, or Vercel.

@@ -1,0 +1,70 @@
+name: Deploy dashboard to GitHub Pages
+
+# Builds the dbt warehouse from the committed seeds, then builds the Evidence
+# dashboard and publishes it to GitHub Pages at https://<owner>.github.io/ding12/
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deploy at a time; cancel in-progress runs on new pushes.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # --- Build the DuckDB warehouse with dbt (from the committed seeds) ---
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dbt
+        run: pip install -r requirements.txt
+      - name: Configure dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cp profiles.example.yml ~/.dbt/profiles.yml
+      - name: Build warehouse (seed + run + test)
+        run: |
+          dbt seed
+          dbt build
+
+      # --- Build the Evidence dashboard against ding12.duckdb ---
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Evidence dependencies
+        working-directory: reports
+        run: npm ci
+      - name: Set base path for project Pages (/ding12)
+        working-directory: reports
+        run: printf '\ndeployment:\n  basePath: /ding12\n' >> evidence.config.yaml
+      - name: Build Evidence site
+        working-directory: reports
+        run: npm run build
+      - name: Disable Jekyll (serve _app assets as-is)
+        run: touch reports/build/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
