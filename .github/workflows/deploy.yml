@@ -47,7 +47,8 @@ jobs:
         run: npm ci
       - name: Set base path for project Pages (/ding12)
         working-directory: reports
-        run: printf '\ndeployment:\n  basePath: /ding12\n' >> evidence.config.yaml
+        run: |
+          printf '\ndeployment:\n  basePath: /ding12\n' >> evidence.config.yaml
       - name: Build Evidence site
         working-directory: reports
         run: npm run build
