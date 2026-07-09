@@ -63,7 +63,9 @@ tick-through version of the chapters below.
 8. `08_dbt_docs_local_ui.md` — lineage and docs UI.
 9. `09_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
 10. `10_dashboards_evidence.md` — build the live dashboard and deploy it.
-11. `11_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
+11. `11_portfolio_docs.md` — write the docs that turn the build into a portfolio
+    (glossary, assumptions, interview story, résumé).
+12. `12_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
 
 **Done with all of it?** [`../docs/next_steps.md`](../docs/next_steps.md) is your
 roadmap for after the tutorial — running the same project on a real cloud

@@ -64,6 +64,10 @@ plus which terminal to use when.
 - [ ] 🌐 On github.com: **Settings → Pages → Source = GitHub Actions**
 - [ ] 🌐 Confirm your live URL: `https://<your-username>.github.io/<your-repo>/`
 
-## 8. Portfolio polish
-- [ ] 💻 Fill in `README.md` and the `docs/` (glossary, assumptions, interview story, resume)
-- [ ] 💻 Read [`11`](11_dbt_cloud_bigquery.md) for the dbt Cloud + BigQuery future path
+## 8. Portfolio docs — [`11`](11_portfolio_docs.md)  ✍️
+- [ ] 💻 ✍️ `docs/metrics_glossary.md` — define every metric straight from your SQL
+- [ ] 💻 ✍️ `docs/business_assumptions.md` — the judgment calls + what the tests taught you
+- [ ] 💻 ✍️ `docs/interview_story.md` — 60-sec pitch, 3-min deep dive, why dbt/DuckDB/Evidence
+- [ ] 💻 ✍️ `docs/resume_bullets.md` — bullets grouped by target role
+- [ ] 💻 Fill in `README.md` → commit + push
+- [ ] 💻 Read [`12`](12_dbt_cloud_bigquery.md) for the dbt Cloud + BigQuery future path

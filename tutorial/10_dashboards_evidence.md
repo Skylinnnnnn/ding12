@@ -103,14 +103,15 @@ Kaggle download. `npm run build` still works locally too (outputs to
 `reports/build/`) if you'd rather host on Evidence Cloud, Netlify, or Vercel.
 
 ## 🎉 You've built the whole thing
-That's the full track: from an empty repo to a tested, documented dbt warehouse
-with a live dashboard on the internet. You now have a portfolio project with a
-public URL you can put on a resume — built with the exact tools modern data teams
-use.
+That's the full build: from an empty repo to a tested, documented dbt warehouse
+with a live dashboard on the internet — built with the exact tools modern data
+teams use.
 
-**Where to go next:** [`../docs/next_steps.md`](../docs/next_steps.md) is the
-roadmap for leveling it up — running the same project on a real cloud warehouse
-(BigQuery/Snowflake) with scheduled jobs and CI. Read [`11_dbt_cloud_bigquery.md`](11_dbt_cloud_bigquery.md)
-first for the mental model of that jump. And revisit [`../docs/interview_story.md`](../docs/interview_story.md)
-and [`../docs/resume_bullets.md`](../docs/resume_bullets.md) to turn the build into
-something you can talk about.
+**Next — make it a portfolio:** the code is done, but a project you can *talk
+about* needs the write-ups. [`11_portfolio_docs.md`](11_portfolio_docs.md) walks
+through the `docs/` files — metrics glossary, business assumptions, interview
+story, and résumé bullets — and why each one matters to a reviewer.
+
+**Later — level it up:** [`12_dbt_cloud_bigquery.md`](12_dbt_cloud_bigquery.md) and
+[`../docs/next_steps.md`](../docs/next_steps.md) cover running the same project on a
+real cloud warehouse (BigQuery/Snowflake) with scheduled jobs and CI.

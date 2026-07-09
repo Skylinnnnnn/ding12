@@ -90,7 +90,7 @@ Ding12/
 ├── dashboards/           # business-facing dashboard specs (blueprints)
 ├── reports/              # live Evidence dashboard (reads the DuckDB marts)
 ├── docs/                 # glossary, assumptions, interview story, resume, cloud plan
-├── tutorial/             # step-by-step guide (00–11)
+├── tutorial/             # step-by-step guide (00–12)
 └── .github/workflows/    # deploy.yml — build + publish dashboard to Pages
 ```
 
@@ -227,7 +227,7 @@ more production-like workflow (browser IDE, managed environments, scheduled jobs
 hosted docs/lineage). This is a polish phase, **not** required for the MVP and
 **not** a replacement for it. Step-by-step plan:
 [`docs/cloud_migration_plan.md`](docs/cloud_migration_plan.md) and
-[`tutorial/11_dbt_cloud_bigquery.md`](tutorial/11_dbt_cloud_bigquery.md).
+[`tutorial/12_dbt_cloud_bigquery.md`](tutorial/12_dbt_cloud_bigquery.md).
 
 ## Next steps
 1. Download the Kaggle CSVs into `seeds/` and run `dbt build`.

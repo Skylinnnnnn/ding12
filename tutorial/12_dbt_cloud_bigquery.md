@@ -1,4 +1,4 @@
-# 11 — dbt Cloud + BigQuery (Future Path)
+# 12 — dbt Cloud + BigQuery (Future Path)
 
 > **Do not implement this phase yet.** The local MVP is complete and interview-
 > ready on its own. This chapter explains where the project *can* go next.
