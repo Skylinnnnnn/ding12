@@ -71,6 +71,10 @@ git push -u origin main
 ```
 Refresh your repo page on GitHub — your README is live. 🎉
 
+> **Where did it go?** Your files live on *your computer*; `git push` copied them
+> up to GitHub. That local-vs-cloud split is the thing to get straight early —
+> see [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md) for the picture.
+
 ## 7. Create the folder skeleton
 You'll fill these in over the next chapters:
 ```bash

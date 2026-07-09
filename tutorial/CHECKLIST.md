@@ -4,7 +4,8 @@ The tick-through version of the tutorials. Build into **your own** repo; use the
 [reference repo](https://github.com/Skylinnnnnn/ding12) as an answer key. Legend:
 ✍️ = write it yourself · 📋 = copy it (and read it).
 
-## 0. Setup — [`00b`](00b_github_and_git_setup.md) & [`01`](01_environment_setup.md)
+## 0. Setup — [`00b`](00b_github_and_git_setup.md), [`00c`](00c_how_it_all_fits.md) & [`01`](01_environment_setup.md)
+- [ ] Read [`00c`](00c_how_it_all_fits.md) — the map (where tools live + the whole process)
 - [ ] Create a GitHub account; install Git + GitHub CLI (`git --version`, `gh --version`)
 - [ ] `git config --global` your name + private no-reply email
 - [ ] `gh auth login` (GitHub.com → HTTPS → browser)
@@ -12,6 +13,7 @@ The tick-through version of the tutorials. Build into **your own** repo; use the
 - [ ] First commit + push; create the folder skeleton
 - [ ] 📋 Copy config files: `requirements.txt`, `.gitignore`, `dbt_project.yml`, `profiles.example.yml`
 - [ ] Check Python is 3.9–3.13; create venv; `pip install -r requirements.txt`
+- [ ] Confirm the venv is active — prompt shows `(.venv)` and `dbt --version` runs
 - [ ] `cp profiles.example.yml ~/.dbt/profiles.yml` → `dbt debug` (all green)
 
 ## 1. Data — [`01`](01_environment_setup.md)

@@ -65,6 +65,32 @@ pip install -r requirements.txt
 
 You'll know it worked when your prompt shows `(.venv)` and `dbt --version` runs.
 
+### Understanding the `(.venv)` prefix — and how to leave it
+Once the venv exists, you'll notice **every new VS Code terminal opens with
+`(.venv)` already showing** at the start of the prompt. That's expected and
+good — here's what's going on:
+
+- **What `(.venv)` means:** your commands now use *this project's* isolated
+  Python and packages (dbt lives here), not your system-wide Python. You want it
+  active whenever you run `dbt`.
+- **Why it turns on by itself:** VS Code's Python extension remembers the
+  interpreter for this folder and **auto-activates the venv** in each new
+  terminal. You didn't do anything wrong — it's a convenience.
+- **Make it reliable:** if a terminal ever opens *without* `(.venv)`, select the
+  interpreter once via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) →
+  **Python: Select Interpreter** → pick the entry that points at `.venv`. New
+  terminals will then auto-activate it.
+- **How to leave it:** just type `deactivate` (same on Windows + macOS) — the
+  `(.venv)` disappears and you're back to system Python. You rarely need to;
+  staying in the venv for this project is completely fine.
+- **How to get back in:** re-run the activate command from step 1
+  (`.venv\Scripts\Activate.ps1` on Windows, `source .venv/bin/activate` on
+  macOS/Linux), or just open a fresh VS Code terminal.
+
+Quick check any time: if the prompt shows `(.venv)` and `dbt --version` runs,
+you're in the right place. (For the bigger picture of where the venv sits among
+all the tools, see [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md).)
+
 ## 2. Point dbt at DuckDB (the profile)
 dbt reads connection settings from a `profiles.yml` in your user dbt folder.
 

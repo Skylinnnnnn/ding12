@@ -49,15 +49,17 @@ Follow the end-to-end **[build checklist](CHECKLIST.md)** as you go — it's the
 tick-through version of the chapters below.
 
 1. `00b_github_and_git_setup.md` — create your account, repo, and first commit.
-2. `01_environment_setup.md` — install, get the data, first run.
-3. `02_dbt_mental_model.md` — how dbt thinks.
-4. `03_building_staging_models.md`  ✍️
-5. `04_building_intermediate_models.md`  ✍️
-6. `05_building_marts.md`  ✍️
-7. `06_dbt_docs_local_ui.md` — lineage and docs UI.
-8. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
-9. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
-10. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
+2. `00c_how_it_all_fits.md` — **the map**: where every tool lives and the whole
+   process, start to finish. New to how local vs GitHub fit together? Read this.
+3. `01_environment_setup.md` — install, get the data, first run.
+4. `02_dbt_mental_model.md` — how dbt thinks.
+5. `03_building_staging_models.md`  ✍️
+6. `04_building_intermediate_models.md`  ✍️
+7. `05_building_marts.md`  ✍️
+8. `06_dbt_docs_local_ui.md` — lineage and docs UI.
+9. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
+10. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
+11. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
 
 **Done with all of it?** [`../docs/next_steps.md`](../docs/next_steps.md) is your
 roadmap for after the tutorial — running the same project on a real cloud
