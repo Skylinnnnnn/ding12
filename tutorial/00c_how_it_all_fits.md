@@ -94,6 +94,13 @@ The github.com website is for *looking at* your project (and letting others look
 writing happens in VS Code, and `git push` is the one action that carries your
 work from your computer up to the website.
 
+> **The 💻 / 🌐 markers:** so you never have to guess per step, the
+> [build checklist](CHECKLIST.md) tags **every** step with **💻 = on your computer
+> (VS Code)** or **🌐 = in a web browser (a real website like github.com or
+> Kaggle)**. Almost every step is 💻 — the handful of 🌐 steps (make a GitHub
+> account, download from Kaggle, turn on Pages, open your live URL) are the only
+> times you leave VS Code.
+
 | What you want to do | Where you do it |
 | --- | --- |
 | Write or edit a `.sql` / `.yml` / `.md` file | **VS Code — editor pane** (on your computer) |
