@@ -51,8 +51,38 @@ If it says 3.9–3.13, you're good. If it says **3.14** (or Python isn't install
 `python`/`pip` inside it are already the right version.)
 
 ## 1. Python virtual environment
-A virtual environment keeps this project's packages isolated from the rest of
-your machine.
+
+### Why bother with a venv?
+A virtual environment (**venv**) is a private folder — `.venv` — that holds this
+project's own copy of Python and its own installed packages, used *only* here.
+
+The problem it solves: if you `pip install` everything into your system-wide
+Python, every project shares one set of package versions. Project A needs
+`dbt 1.11`, project B needs an older one, something else needs a newer `pandas`
+— they collide, and you get the classic *"it worked yesterday"* breakage
+("dependency hell"). A venv gives each project its own clean, isolated set so
+they can't interfere.
+
+Concrete benefits here:
+- **No conflicts** — Ding12's dbt/DuckDB packages stay separate from anything
+  else on your machine.
+- **Reproducible** — `requirements.txt` records exactly what goes in the venv, so
+  you (or Ding lao shi, or a hiring manager) can recreate the identical
+  environment anywhere.
+- **Disposable** — if it ever gets messy, delete the `.venv` folder and rebuild
+  it in one command. Your system Python is never touched.
+- **Nothing to clean up globally** — uninstalling is just removing a folder.
+
+**Is it like a container?** Good instinct — *same idea, lighter scope.* Both give
+you an isolated, reproducible environment. But a container (e.g. Docker) isolates
+a whole mini-operating-system — the OS libraries, system tools, the filesystem,
+everything. A venv only isolates **Python packages**; it still runs on your real
+machine and your real OS. So think of it as a *Python-only, featherweight
+container* — enough isolation for this project, without the heavier machinery.
+(That's also why the project spec deliberately skips Docker: a venv is all the
+isolation an analytics project like this needs.)
+
+### Create and activate it
 
 ```bash
 # Windows (PowerShell)
