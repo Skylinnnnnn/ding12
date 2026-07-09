@@ -4,6 +4,15 @@
 > where they differ. Run everything from the repo root (the folder you `git init`ed
 > in chapter `00b`).
 
+> **Which terminal, from here on:** open your `ding12` folder in **VS Code**
+> (File → Open Folder → pick `ding12`), then open its built-in terminal
+> (**View → Terminal**, or `` Ctrl+` ``). Use **that** terminal for everything in
+> this chapter and every chapter after — dbt, git, python, npm all run there. On
+> Windows, the VS Code terminal *is* a PowerShell window, so the PowerShell
+> commands below apply as-is; you no longer need to open PowerShell separately.
+> (In chapter `00b` you used a standalone terminal because the folder didn't exist
+> yet — now it does.)
+
 ## Create the project config files  📋 copy
 These are configuration/boilerplate — **copy them** from the reference repo into
 your repo root, then read each one so you know what it does (don't just paste
@@ -80,12 +89,19 @@ good — here's what's going on:
   interpreter once via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) →
   **Python: Select Interpreter** → pick the entry that points at `.venv`. New
   terminals will then auto-activate it.
-- **How to leave it:** just type `deactivate` (same on Windows + macOS) — the
-  `(.venv)` disappears and you're back to system Python. You rarely need to;
-  staying in the venv for this project is completely fine.
+- **Does the venv block `git`?** No — this is a common worry. `git`, `dbt`, and
+  `npm` all work perfectly fine *inside* `(.venv)`. Activating a venv only changes
+  which `python`/`pip` you get; it hides nothing else. **You do not deactivate to
+  run git.** Just run your `git add` / `git commit` / `git push` right there in the
+  same terminal.
+- **How to leave it — and when you actually need to:** type `deactivate` (same on
+  Windows + macOS) and the `(.venv)` disappears. For *this* project you basically
+  never need to — the only reason to deactivate is if you switch to a *different*
+  project that needs your system Python. For Ding12, **stay in the venv the whole
+  time.**
 - **How to get back in:** re-run the activate command from step 1
   (`.venv\Scripts\Activate.ps1` on Windows, `source .venv/bin/activate` on
-  macOS/Linux), or just open a fresh VS Code terminal.
+  macOS/Linux), or just open a fresh VS Code terminal (it auto-activates).
 
 Quick check any time: if the prompt shows `(.venv)` and `dbt --version` runs,
 you're in the right place. (For the bigger picture of where the venv sits among

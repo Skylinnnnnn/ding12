@@ -119,7 +119,8 @@ work from your computer up to the website.
 When a terminal looks confusing, ask:
 
 1. **Does my prompt show `(.venv)`?** If yes, my project's Python is active (good —
-   `dbt` will work). See [`01`](01_environment_setup.md) for what that means.
+   `dbt`, and also `git` and `npm`, all work right here; you do *not* deactivate to
+   run git). See [`01`](01_environment_setup.md) for what that means.
 2. **Am I in the `ding12` folder?** Run `pwd` (macOS) / `cd` (Windows) to check.
    `dbt` and `npm` only work from inside the project folder.
 3. **Is a server holding this terminal?** If you ran `dbt docs serve` (port 8080),

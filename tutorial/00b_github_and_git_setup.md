@@ -6,6 +6,12 @@ cloning someone else's. Use the reference repo only to check your work:
 
 > **Reference / answer key:** https://github.com/Skylinnnnnn/ding12
 
+> **Which terminal for this chapter:** your project folder and VS Code setup don't
+> exist yet, so run these steps in a **standalone terminal** — on Windows open
+> **PowerShell** (Start menu → type "PowerShell"), on macOS open **Terminal**.
+> Once you've created the `ding12` folder (step 5), you can open it in VS Code and,
+> from chapter `01` onward, do everything in VS Code's built-in terminal instead.
+
 ## 1. Create a GitHub account
 Go to https://github.com and sign up (free). Pick a username you're happy to show
 on a resume — this becomes part of your project URL.
