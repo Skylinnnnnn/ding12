@@ -42,14 +42,6 @@ npm run dev
 Open **http://localhost:3000**. Edit any file in `reports/pages/` and the browser
 updates live. Press **Ctrl+C** to stop.
 
-## Run it (local dev server)
-```bash
-# from the reports/ folder
-npm run dev
-```
-Open **http://localhost:3000**. Edit any file in `reports/pages/` and the browser
-updates live. Press **Ctrl+C** to stop.
-
 > **Windows note:** run the same `npm` commands in PowerShell or Command Prompt
 > from the `reports\` folder. Node/npm commands are identical across OSes.
 
@@ -109,3 +101,16 @@ the `workflow` scope on your login — if `git push` is rejected, run
 Because it builds from the committed seeds, the deploy needs no secrets and no
 Kaggle download. `npm run build` still works locally too (outputs to
 `reports/build/`) if you'd rather host on Evidence Cloud, Netlify, or Vercel.
+
+## 🎉 You've built the whole thing
+That's the full track: from an empty repo to a tested, documented dbt warehouse
+with a live dashboard on the internet. You now have a portfolio project with a
+public URL you can put on a resume — built with the exact tools modern data teams
+use.
+
+**Where to go next:** [`../docs/next_steps.md`](../docs/next_steps.md) is the
+roadmap for leveling it up — running the same project on a real cloud warehouse
+(BigQuery/Snowflake) with scheduled jobs and CI. Read [`07_dbt_cloud_bigquery.md`](07_dbt_cloud_bigquery.md)
+first for the mental model of that jump. And revisit [`../docs/interview_story.md`](../docs/interview_story.md)
+and [`../docs/resume_bullets.md`](../docs/resume_bullets.md) to turn the build into
+something you can talk about.

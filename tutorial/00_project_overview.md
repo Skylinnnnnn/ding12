@@ -19,6 +19,10 @@ Each build chapter marks files two ways:
 - 📋 **Copy this** — plumbing/config where typing teaches nothing (project config,
   `.gitignore`, CI workflow). Copy it, but read it so you understand what it does.
 
+The [build checklist](CHECKLIST.md) additionally tags each step by **where** you
+do it — 💻 on your computer (VS Code) or 🌐 in a web browser — so you never have to
+guess. [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md) explains that split.
+
 The pattern within a layer is *worked example → you try*: build one model + its
 tests fully, then repeat the pattern for the rest.
 

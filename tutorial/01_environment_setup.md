@@ -67,8 +67,8 @@ Concrete benefits here:
 - **No conflicts** — Ding12's dbt/DuckDB packages stay separate from anything
   else on your machine.
 - **Reproducible** — `requirements.txt` records exactly what goes in the venv, so
-  you (or Ding lao shi, or a hiring manager) can recreate the identical
-  environment anywhere.
+  you (or a teammate, or a hiring manager) can recreate the identical environment
+  anywhere.
 - **Disposable** — if it ever gets messy, delete the `.venv` folder and rebuild
   it in one command. Your system Python is never touched.
 - **Nothing to clean up globally** — uninstalling is just removing a folder.

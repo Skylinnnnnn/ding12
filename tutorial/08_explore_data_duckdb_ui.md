@@ -81,8 +81,8 @@ Install the CLI:
 - **macOS:** `brew install duckdb`
 
 ## Alternative: DBeaver (a full database GUI)
-If Ding lao shi prefers a traditional SQL-workbench experience (like SSMS or
-DBeaver for other databases), **DBeaver Community** is free and cross-platform:
+If you prefer a traditional SQL-workbench experience (like SSMS or the database
+GUIs you already know), **DBeaver Community** is free and cross-platform:
 1. Install DBeaver (Windows/macOS/Linux).
 2. New connection → **DuckDB**.
 3. Point the database path at `ding12.duckdb` in the repo.
