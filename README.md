@@ -90,7 +90,7 @@ Ding12/
 ├── dashboards/           # business-facing dashboard specs (blueprints)
 ├── reports/              # live Evidence dashboard (reads the DuckDB marts)
 ├── docs/                 # glossary, assumptions, interview story, resume, cloud plan
-├── tutorial/             # step-by-step guide (00–09)
+├── tutorial/             # step-by-step guide (00–11)
 └── .github/workflows/    # deploy.yml — build + publish dashboard to Pages
 ```
 
@@ -128,7 +128,7 @@ Presenting the project live? See [`docs/demo_runbook.md`](docs/demo_runbook.md).
 > `python3 --version` (Windows: `python --version`). If you're on 3.14: Windows →
 > `winget install Python.Python.3.12`; macOS → `brew install python@3.12`. Full
 > **Windows + macOS/Linux** step-by-step (including venv activation and the DuckDB
-> UI) is in [`tutorial/01_environment_setup.md`](tutorial/01_environment_setup.md).
+> UI) is in [`tutorial/03_environment_setup.md`](tutorial/03_environment_setup.md).
 
 macOS / Linux:
 ```bash
@@ -185,7 +185,7 @@ python scripts\open_ui.py
 ### Explore the data visually (DuckDB UI)
 `python scripts/open_ui.py` opens DuckDB's built-in browser UI at
 http://localhost:4213 to browse every seed/view/mart and run SQL — works the same
-on Windows and macOS. See [`tutorial/08_explore_data_duckdb_ui.md`](tutorial/08_explore_data_duckdb_ui.md)
+on Windows and macOS. See [`tutorial/09_explore_data_duckdb_ui.md`](tutorial/09_explore_data_duckdb_ui.md)
 for that plus DuckDB-CLI and DBeaver alternatives. **Only one process can open
 `ding12.duckdb` at a time** — stop the UI (Ctrl+C) before running `dbt build`.
 
@@ -209,7 +209,7 @@ npm install        # one time
 npm run sources    # materialize the marts to parquet
 npm run dev        # open http://localhost:3000
 ```
-Full walkthrough (Windows + macOS): [`tutorial/09_dashboards_evidence.md`](tutorial/09_dashboards_evidence.md).
+Full walkthrough (Windows + macOS): [`tutorial/10_dashboards_evidence.md`](tutorial/10_dashboards_evidence.md).
 
 ## Resume bullets & interview story
 See [`docs/resume_bullets.md`](docs/resume_bullets.md) and
@@ -227,7 +227,7 @@ more production-like workflow (browser IDE, managed environments, scheduled jobs
 hosted docs/lineage). This is a polish phase, **not** required for the MVP and
 **not** a replacement for it. Step-by-step plan:
 [`docs/cloud_migration_plan.md`](docs/cloud_migration_plan.md) and
-[`tutorial/07_dbt_cloud_bigquery.md`](tutorial/07_dbt_cloud_bigquery.md).
+[`tutorial/11_dbt_cloud_bigquery.md`](tutorial/11_dbt_cloud_bigquery.md).
 
 ## Next steps
 1. Download the Kaggle CSVs into `seeds/` and run `dbt build`.

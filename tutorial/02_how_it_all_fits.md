@@ -1,4 +1,4 @@
-# 00c — How It All Fits (your map)
+# 02 — How It All Fits (your map)
 
 New tools can feel like a pile of disconnected names — Python, venv, dbt, DuckDB,
 Git, GitHub, Evidence. This chapter is the **map**. Come back to it any time you
@@ -52,27 +52,27 @@ This is the *order of things*. Each step is tagged with the **chapter** that
 covers it, so you can always find where you are.
 
 ```
-[00b]  create GitHub repo ───────────────▶ empty repo on GitHub
+[01]  create GitHub repo ───────────────▶ empty repo on GitHub
   │
-[01]   install Python → make venv → pip install dbt ─▶ (.venv) ready
+[03]   install Python → make venv → pip install dbt ─▶ (.venv) ready
   │
-[01]   download Kaggle CSVs into seeds/
+[03]   download Kaggle CSVs into seeds/
   │
-[01]   dbt seed ─────────────▶ CSVs loaded into ding12.duckdb
+[03]   dbt seed ─────────────▶ CSVs loaded into ding12.duckdb
   │
-[03]   write staging   stg_*   ─┐
-[04]   write intermediate int_* ├─ dbt run ─▶ views + tables in DuckDB
-[05]   write marts     mart_*   ─┘
+[05]   write staging   stg_*   ─┐
+[06]   write intermediate int_* ├─ dbt run ─▶ views + tables in DuckDB
+[07]   write marts     mart_*   ─┘
   │
-[03-05] write tests ─ dbt test ─▶ data quality enforced
+[05-07] write tests ─ dbt test ─▶ data quality enforced
   │
-[06]   dbt docs generate + serve ─▶ lineage graph in browser
+[08]   dbt docs generate + serve ─▶ lineage graph in browser
   │
-[08]   python scripts/open_ui.py ─▶ explore the data (DuckDB UI)
+[09]   python scripts/open_ui.py ─▶ explore the data (DuckDB UI)
   │
-[09]   Evidence: npm run sources + dev ─▶ local dashboard :3000
+[10]   Evidence: npm run sources + dev ─▶ local dashboard :3000
   │
-[09]   git push ─▶ GitHub Actions ─▶ Pages ─▶ LIVE dashboard URL
+[10]   git push ─▶ GitHub Actions ─▶ Pages ─▶ LIVE dashboard URL
 ```
 
 **Lost?** Find the chapter tag on the left that matches what you're doing —
@@ -127,12 +127,12 @@ When a terminal looks confusing, ask:
 
 1. **Does my prompt show `(.venv)`?** If yes, my project's Python is active (good —
    `dbt`, and also `git` and `npm`, all work right here; you do *not* deactivate to
-   run git). See [`01`](01_environment_setup.md) for what that means.
+   run git). See [`03`](03_environment_setup.md) for what that means.
 2. **Am I in the `ding12` folder?** Run `pwd` (macOS) / `cd` (Windows) to check.
    `dbt` and `npm` only work from inside the project folder.
 3. **Is a server holding this terminal?** If you ran `dbt docs serve` (port 8080),
    `open_ui.py` (4213), or `npm run dev` (3000), that terminal is *busy* running
    it — press `Ctrl+C` to stop, or open a **second terminal** for other commands.
 
-➡️ Next: [`01_environment_setup.md`](01_environment_setup.md) — install everything
+➡️ Next: [`03_environment_setup.md`](03_environment_setup.md) — install everything
 and make that `(.venv)` appear.

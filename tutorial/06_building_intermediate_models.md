@@ -1,4 +1,4 @@
-# 04 — Building Intermediate Models
+# 06 — Building Intermediate Models
 
 Intermediate models hold **reusable business logic and joins**. They're the
 bridge between clean staging tables and aggregated marts. They're views, and

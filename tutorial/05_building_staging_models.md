@@ -1,4 +1,4 @@
-# 03 — Building Staging Models
+# 05 — Building Staging Models
 
 Staging is the **clean, standardized version of raw data** — not the business
 logic layer. One staging model per source table.

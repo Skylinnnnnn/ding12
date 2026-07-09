@@ -28,7 +28,7 @@ reports/
 ```
 Each `.sql` in `sources/ding12/` exposes a mart as `ding12.<name>` to the pages.
 
-Full walkthrough (Windows + macOS): [`../tutorial/09_dashboards_evidence.md`](../tutorial/09_dashboards_evidence.md).
+Full walkthrough (Windows + macOS): [`../tutorial/10_dashboards_evidence.md`](../tutorial/10_dashboards_evidence.md).
 
 ## Notes
 - **One process per DuckDB file:** stop `npm run dev` before running `dbt build`.

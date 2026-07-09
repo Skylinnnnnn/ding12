@@ -1,4 +1,4 @@
-# 09 — Dashboards with Evidence
+# 10 — Dashboards with Evidence
 
 The `dashboards/*.md` files are dashboard **specs** (blueprints). The `reports/`
 folder is the **live implementation** built with [Evidence](https://evidence.dev),
@@ -110,7 +110,7 @@ use.
 
 **Where to go next:** [`../docs/next_steps.md`](../docs/next_steps.md) is the
 roadmap for leveling it up — running the same project on a real cloud warehouse
-(BigQuery/Snowflake) with scheduled jobs and CI. Read [`07_dbt_cloud_bigquery.md`](07_dbt_cloud_bigquery.md)
+(BigQuery/Snowflake) with scheduled jobs and CI. Read [`11_dbt_cloud_bigquery.md`](11_dbt_cloud_bigquery.md)
 first for the mental model of that jump. And revisit [`../docs/interview_story.md`](../docs/interview_story.md)
 and [`../docs/resume_bullets.md`](../docs/resume_bullets.md) to turn the build into
 something you can talk about.

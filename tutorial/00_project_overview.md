@@ -7,7 +7,7 @@ analytics deeply — the goal here is to connect that expertise to the tooling
 
 ## How to use these tutorials
 **Build your own copy from scratch.** Create your own GitHub account and your own
-`ding12` repo (chapter `00b`), then build each piece into it as you read. Don't
+`ding12` repo (chapter `01`), then build each piece into it as you read. Don't
 clone the reference repo and run it — the learning is in the doing.
 
 Use the **reference repo as an answer key** to check your work when you're stuck:
@@ -21,7 +21,7 @@ Each build chapter marks files two ways:
 
 The [build checklist](CHECKLIST.md) additionally tags each step by **where** you
 do it — 💻 on your computer (VS Code) or 🌐 in a web browser — so you never have to
-guess. [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md) explains that split.
+guess. [`02_how_it_all_fits.md`](02_how_it_all_fits.md) explains that split.
 
 The pattern within a layer is *worked example → you try*: build one model + its
 tests fully, then repeat the pattern for the rest.
@@ -52,22 +52,26 @@ into tested, documented, dashboard-ready marts covering:
 Follow the end-to-end **[build checklist](CHECKLIST.md)** as you go — it's the
 tick-through version of the chapters below.
 
-1. `00b_github_and_git_setup.md` — create your account, repo, and first commit.
-2. `00c_how_it_all_fits.md` — **the map**: where every tool lives and the whole
+1. `01_github_and_git_setup.md` — create your account, repo, and first commit.
+2. `02_how_it_all_fits.md` — **the map**: where every tool lives and the whole
    process, start to finish. New to how local vs GitHub fit together? Read this.
-3. `01_environment_setup.md` — install, get the data, first run.
-4. `02_dbt_mental_model.md` — how dbt thinks.
-5. `03_building_staging_models.md`  ✍️
-6. `04_building_intermediate_models.md`  ✍️
-7. `05_building_marts.md`  ✍️
-8. `06_dbt_docs_local_ui.md` — lineage and docs UI.
-9. `08_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
-10. `09_dashboards_evidence.md` — build the live dashboard and deploy it.
-11. `07_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
+3. `03_environment_setup.md` — install, get the data, first run.
+4. `04_dbt_mental_model.md` — how dbt thinks.
+5. `05_building_staging_models.md`  ✍️
+6. `06_building_intermediate_models.md`  ✍️
+7. `07_building_marts.md`  ✍️
+8. `08_dbt_docs_local_ui.md` — lineage and docs UI.
+9. `09_explore_data_duckdb_ui.md` — see the data visually + a guided sample query.
+10. `10_dashboards_evidence.md` — build the live dashboard and deploy it.
+11. `11_dbt_cloud_bigquery.md` — the future production-like path (read anytime).
 
 **Done with all of it?** [`../docs/next_steps.md`](../docs/next_steps.md) is your
 roadmap for after the tutorial — running the same project on a real cloud
 warehouse (BigQuery/Snowflake) with scheduled jobs and CI.
+
+**Handy reference:** [`VSCODE_CHEATSHEET.md`](VSCODE_CHEATSHEET.md) — the VS Code
+shortcuts you'll use most, plus which terminal to use when (PowerShell vs the
+built-in VS Code terminal). Keep it open while you work.
 
 ## Official docs — keep these open
 Bookmark these; the ✍️ chapters expect you to reference them while you write.

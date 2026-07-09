@@ -1,4 +1,4 @@
-# 02 — The dbt Mental Model
+# 04 — The dbt Mental Model
 
 If you already write SQL, dbt is smaller than it looks. Here's the whole idea.
 Official reference: [dbt docs → Build](https://docs.getdbt.com/docs/build/projects).

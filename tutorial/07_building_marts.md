@@ -1,4 +1,4 @@
-# 05 — Building Marts
+# 07 — Building Marts
 
 Marts are the **business-facing outputs**. Each mart answers a specific set of
 questions at a specific grain, and each is materialized as a **table** so
@@ -51,4 +51,4 @@ git add -A && git commit -m "Add marts, macro, and singular tests" && git push
 ```
 
 At this point you have a complete, tested warehouse — the hard part is done.
-Chapters 06/08 show how to explore it, and 09 puts a dashboard on top.
+Chapters 08/09 show how to explore it, and 10 puts a dashboard on top.

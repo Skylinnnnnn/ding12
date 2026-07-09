@@ -1,4 +1,4 @@
-# 06 — dbt Docs: the Local UI
+# 08 — dbt Docs: the Local UI
 
 dbt can generate a browsable documentation site from your project — model
 descriptions, columns, tests, and a visual lineage graph. This is one of the

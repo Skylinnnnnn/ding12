@@ -1,4 +1,4 @@
-# 08 — Explore the Data Visually (DuckDB UI)
+# 09 — Explore the Data Visually (DuckDB UI)
 
 Once you've run `dbt build`, all the seeds, views, and mart tables live inside a
 single file: `ding12.duckdb`. You don't need the command line to look at them —
@@ -63,7 +63,7 @@ y-axis.
 
 That's genuine analysis — a trend, an anomaly, and an assumption to document —
 straight from a SQL cell. The polished dashboard in `reports/` (see
-[`09_dashboards_evidence.md`](09_dashboards_evidence.md)) just makes this shareable.
+[`10_dashboards_evidence.md`](10_dashboards_evidence.md)) just makes this shareable.
 
 > Try the same move on `mart_seller_performance` (sort by `seller_gmv`, eyeball
 > `avg_review_score` and `late_delivery_rate`) or `mart_category_performance`

@@ -48,7 +48,7 @@ dbt project runs on both with only tiny dialect tweaks.
    learning the *connection* itself.
 2. **dbt Cloud** — the browser IDE + managed environments + built-in scheduler +
    hosted docs. This is where you learn the *managed* workflow. See
-   [`../tutorial/07_dbt_cloud_bigquery.md`](../tutorial/07_dbt_cloud_bigquery.md)
+   [`../tutorial/11_dbt_cloud_bigquery.md`](../tutorial/11_dbt_cloud_bigquery.md)
    and the concrete step list in
    [`cloud_migration_plan.md`](cloud_migration_plan.md).
 

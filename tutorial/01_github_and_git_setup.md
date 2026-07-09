@@ -1,4 +1,4 @@
-# 00b — GitHub & Git Setup (build your own repo)
+# 01 — GitHub & Git Setup (build your own repo)
 
 This chapter gets you from *nothing* to *an empty project on GitHub that you own*.
 You'll build **your own** Ding12 into this repo, chapter by chapter — you are not
@@ -10,7 +10,7 @@ cloning someone else's. Use the reference repo only to check your work:
 > exist yet, so run these steps in a **standalone terminal** — on Windows open
 > **PowerShell** (Start menu → type "PowerShell"), on macOS open **Terminal**.
 > Once you've created the `ding12` folder (step 5), you can open it in VS Code and,
-> from chapter `01` onward, do everything in VS Code's built-in terminal instead.
+> from chapter `03` onward, do everything in VS Code's built-in terminal instead.
 
 ## 1. Create a GitHub account
 Go to https://github.com and sign up (free). Pick a username you're happy to show
@@ -79,7 +79,7 @@ Refresh your repo page on GitHub — your README is live. 🎉
 
 > **Where did it go?** Your files live on *your computer*; `git push` copied them
 > up to GitHub. That local-vs-cloud split is the thing to get straight early —
-> see [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md) for the picture.
+> see [`02_how_it_all_fits.md`](02_how_it_all_fits.md) for the picture.
 
 ## 7. Create the folder skeleton
 You'll fill these in over the next chapters:
@@ -103,4 +103,4 @@ Each build chapter follows the same loop:
 Committing often is a habit worth building now — small commits with clear
 messages are exactly what reviewers and teammates want to see.
 
-➡️ Next: [`01_environment_setup.md`](01_environment_setup.md).
+➡️ Next: [`03_environment_setup.md`](03_environment_setup.md).

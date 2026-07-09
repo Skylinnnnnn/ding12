@@ -1,8 +1,8 @@
-# 01 — Environment Setup
+# 03 — Environment Setup
 
 > **This guide covers both Windows and macOS/Linux.** Commands are shown for each
 > where they differ. Run everything from the repo root (the folder you `git init`ed
-> in chapter `00b`).
+> in chapter `01`).
 
 > **Which terminal, from here on:** open your `ding12` folder in **VS Code**
 > (File → Open Folder → pick `ding12`), then open its built-in terminal
@@ -10,8 +10,9 @@
 > this chapter and every chapter after — dbt, git, python, npm all run there. On
 > Windows, the VS Code terminal *is* a PowerShell window, so the PowerShell
 > commands below apply as-is; you no longer need to open PowerShell separately.
-> (In chapter `00b` you used a standalone terminal because the folder didn't exist
-> yet — now it does.)
+> (In chapter `01` you used a standalone terminal because the folder didn't exist
+> yet — now it does.) Handy shortcuts + this same terminal guidance live in
+> [`VSCODE_CHEATSHEET.md`](VSCODE_CHEATSHEET.md).
 
 ## Create the project config files  📋 copy
 These are configuration/boilerplate — **copy them** from the reference repo into
@@ -135,7 +136,7 @@ good — here's what's going on:
 
 Quick check any time: if the prompt shows `(.venv)` and `dbt --version` runs,
 you're in the right place. (For the bigger picture of where the venv sits among
-all the tools, see [`00c_how_it_all_fits.md`](00c_how_it_all_fits.md).)
+all the tools, see [`02_how_it_all_fits.md`](02_how_it_all_fits.md).)
 
 ## 2. Point dbt at DuckDB (the profile)
 dbt reads connection settings from a `profiles.yml` in your user dbt folder.
@@ -198,7 +199,7 @@ under `seeds/`.
 
 ## 5. See the data in a UI
 To explore the tables visually in your browser, see
-[`08_explore_data_duckdb_ui.md`](08_explore_data_duckdb_ui.md):
+[`09_explore_data_duckdb_ui.md`](09_explore_data_duckdb_ui.md):
 
 ```bash
 python scripts/open_ui.py     # opens http://localhost:4213

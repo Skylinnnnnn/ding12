@@ -72,7 +72,7 @@ cd reports && npm run dev    # http://localhost:3000 — Ctrl+C when done
 
 **7. The clincher — she can build this herself.** Open
 [`../tutorial/CHECKLIST.md`](../tutorial/CHECKLIST.md) and one build chapter (e.g.
-`03`).
+`05`).
 > "Step-by-step, build-your-own-repo guide. ✍️ = write it yourself (official dbt
 > docs linked right there); 📋 = copy the boilerplate. You build into your own
 > repo and check against mine as the answer key — Windows-friendly, start to
