@@ -186,6 +186,14 @@ order_payments, order_reviews, products, sellers, product_category translation).
 `olist_geolocation_dataset.csv` may also be present; it's fine to leave it — the
 MVP doesn't model it.
 
+### Describe the seeds (`seeds/schema.yml`)  ✍️
+Before `dbt seed`, add a light `seeds/schema.yml` that lists each CSV as a seed
+with a one-line description (and, where handy, a column note or two). It's not
+required for `dbt seed` to run, but it's the first place your docs site pulls
+from, and it's good practice to describe a source the moment you load it. Keep it
+short here — the real testing happens in the staging layer (chapter `05`). Model
+it on the [reference `seeds/schema.yml`](https://github.com/Skylinnnnnn/ding12/blob/main/seeds/schema.yml).
+
 ## 4. Build everything
 ```bash
 dbt seed      # load CSVs into DuckDB

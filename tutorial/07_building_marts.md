@@ -40,6 +40,22 @@ dashboards read it fast.
   `seller_id`, `order_month`, `payment_type`.
 - `not_null` on headline metrics like `total_gmv`, `total_payment_value`.
 
+## Two singular tests (`tests/`)  ✍️
+The `schema.yml` tests above are *generic* (reusable checks dbt ships). dbt also
+supports **singular tests** — a plain SQL file in `tests/` that selects the rows
+that **should not exist**; if the query returns any rows, the test fails. Write
+two, one per business rule you care about:
+- `tests/assert_positive_order_amounts.sql` — no order-item amount (price,
+  freight, GMV) should be negative.
+- `tests/assert_valid_delivery_timestamps.sql` — a delivered order shouldn't have
+  a delivery timestamp earlier than its purchase timestamp.
+
+Each is just a `select` returning the offending rows. Model them on the
+[reference `tests/`](https://github.com/Skylinnnnnn/ding12/tree/main/tests), then
+`dbt test` runs them alongside the generic ones. Writing these is worth it: it's
+exactly how you encode "this must always be true" for data a schema test can't
+express. See the [singular tests docs](https://docs.getdbt.com/docs/build/data-tests#singular-data-tests).
+
 ## Run it
 ```bash
 dbt build            # seed + run + test in dependency order
